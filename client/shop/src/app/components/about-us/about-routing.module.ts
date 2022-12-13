@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us.component';
+
+const aboutRoutes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'aboutUs',
+  },
+  {
+    path: 'aboutUs',
+    component: AboutUsComponent,
+  },
+];
+@NgModule({
+  imports: [RouterModule.forChild(aboutRoutes)],
+  exports: [RouterModule],
+})
+export class AboutRoutingModule {}

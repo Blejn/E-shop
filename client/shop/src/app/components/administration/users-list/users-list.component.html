@@ -1,0 +1,17 @@
+<p>users-list works!</p>
+<div *ngIf="users && users.length>0; else noUsersInfo" >
+    <ul  *ngFor="let user of users">
+    <li>{{user.first_name}}</li>
+    <li>{{user.last_name}}</li>
+    <li>{{user.email}}</li>
+    <li>{{user.city}}</li>
+    <li>{{user.street}}</li>
+    <li>{{user.zip_code}}</li>
+       <li>{{user.username}}</li>
+          <li>{{user.password}}</li>
+    </ul>
+</div>
+<ng-template #noUsersInfo>
+    <h1>No Users</h1>
+</ng-template>
+<router-outlet></router-outlet>

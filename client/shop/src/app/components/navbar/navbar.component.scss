@@ -1,0 +1,93 @@
+.nav-link{
+    position: fixed;
+    background-color: white;
+    overflow: hidden;
+       display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    flex-grow: 4;
+    width: 100%;
+    height: 5vh;
+    padding:0 2rem;
+    font-family: 'Roboto Slab', serif;
+    top:0;
+  left:0; 
+  z-index: 1;
+
+}
+.title{
+    font-weight: bold;
+    cursor: pointer;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    flex-grow: 4;
+    font-weight: 400;
+  
+}
+.logo{
+    align-self: center;
+    font-size: 20px;
+}
+.menu-links{
+ align-self: center;
+}
+.menu-icons{
+   align-self: center;
+}
+
+.menu-links > ul{
+display: flex;
+padding: 0;
+margin: 0;
+
+}
+.menu-icons > ul{
+ display: flex;
+ padding: 0;
+margin: 0;
+ 
+}
+.menu-links > ul >li{
+     list-style-type: none;
+     margin: 0 2rem;
+     transition: transform .2s;
+}
+.menu-icons > ul >li{
+     list-style-type: none;
+     transition: transform .2s;
+}
+li:hover{
+      transform: scale(1.2);
+}
+.list-navigation{
+    text-decoration: none;
+      
+  
+}
+
+.text-navigation{
+    text-decoration: none;
+      color:black;
+      
+      
+}
+.text-navigation:hover{
+    text-decoration: none;
+      color:black;
+   
+
+}
+.navbar-icon{
+    font-size: 30px;
+    color: black;
+}
+
+li > .is-active{
+font-weight: 500;
+ text-shadow: 2px 2px #e9e7e7;
+}
