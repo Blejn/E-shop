@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsersListComponent } from './users-list/users-list.component';
+import { AdministrationComponent } from './administration.component';
 
-const administrationRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'usersList' },
-  { path: 'usersList', component: UsersListComponent },
-];
+const routes: Routes = [{ path: '', component: AdministrationComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(administrationRoutes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AdministrationRoutingModule {}
