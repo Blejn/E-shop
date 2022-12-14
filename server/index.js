@@ -4,11 +4,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
 const client = new Client({
-  host: "localhost",
-  user: "postgres",
-  port: 5000,
-  password: "admin",
-  database: "eshop",
+  host: "tomaszrozko97.helioho.st",
+  user: "tomaszrozko97_DBUser",
+  port: 5432,
+  password: "PostgresDB123",
+  database: "tomaszrozko97_eshop",
 });
 
 client.connect();
