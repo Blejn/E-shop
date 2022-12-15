@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     HomePageComponent,
     NavbarComponent,
     PromotionBannerComponent,
-    
   ],
   imports: [
     SharedModule,
