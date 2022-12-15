@@ -4,6 +4,7 @@ import { AboutModule } from './components/about-us/about.module';
 import { AccountModule } from './components/account/account.module';
 import { AdministrationModule } from './components/administration/administration.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { ShopModule } from './components/shop/shop.module';
 
 const routes: Routes = [
   {
@@ -24,10 +25,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => AboutModule,
   },
-  // {
-  //   path: 'shop',
-  //   loadChildren: () => ShopModule,
-  // },
+  {
+    path: 'shop',
+    loadChildren: () => ShopModule,
+  },
   {
     path: 'account',
     loadChildren: () => AccountModule,
