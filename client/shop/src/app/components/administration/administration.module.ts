@@ -3,15 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { AdministrationRoutingModule } from './administration-routing.module';
 import { AdministrationComponent } from './administration.component';
-
+import { UsersListComponent } from './users-list/users-list.component';
 
 @NgModule({
-  declarations: [
-    AdministrationComponent
-  ],
-  imports: [
-    CommonModule,
-    AdministrationRoutingModule
-  ]
+  declarations: [AdministrationComponent, UsersListComponent],
+  imports: [CommonModule, AdministrationRoutingModule],
 })
-export class AdministrationModule { }
+export class AdministrationModule {}
