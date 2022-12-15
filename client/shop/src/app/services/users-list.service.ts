@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UsersListService {
   private apiUrl = '/users';
+
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
