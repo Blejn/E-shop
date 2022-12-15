@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/User';
 import { UsersListService } from 'src/app/services/users-list.service';
 
@@ -7,12 +7,12 @@ import { UsersListService } from 'src/app/services/users-list.service';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
 })
-export class UsersListComponent implements OnInit, AfterViewInit {
+export class UsersListComponent implements OnInit {
   users!: User[];
   ngOnInit(): void {
     this.loadUsers();
   }
-  ngAfterViewInit() {}
+
   constructor(private usersService: UsersListService) {}
 
   loadUsers(): void {
