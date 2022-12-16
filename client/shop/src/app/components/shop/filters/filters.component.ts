@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/model/Product';
 import { FiltersService } from 'src/app/services/filters.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
   filters = this.fb.group({
     author: [],
     bpm: [],
-    key: [''],
+    key: [],
     price: [],
     graphic: [],
     category: [],
