@@ -1,1 +1,17 @@
-<p>shop works!</p>
+<app-toolbar class="toolbar"></app-toolbar>
+<app-filters class="filters p-4"></app-filters>
+<ng-container *ngIf="$filters | async as controls">
+  <div class="products">
+    author: <span>{{ controls.author }}</span>
+    <br />
+    bpm: <span>{{ controls.bpm }}</span>
+    <br />
+    key: <span>{{ controls.key }}</span>
+    <br />
+    price: <span>{{ controls.price }}</span>
+    <br />
+    category: <span>{{ controls.category }}</span>
+    <br />
+    <!-- TODO show cards with specific products, TO JE INO ZEBYS WIDZIOŁ ZE DZIAŁO -->
+  </div>
+</ng-container>

@@ -1,15 +1,15 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdministrationModule } from './components/administration/administration.module';
-import { UsersListService } from './services/users-list.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { PromotionBannerComponent } from './components/home-page/promotion-banner/promotion-banner.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UsersListService } from './services/users-list.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     HomePageComponent,
     NavbarComponent,
     PromotionBannerComponent,
-    
   ],
   imports: [
     SharedModule,
