@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { FiltersService } from 'src/app/services/filters.service';
 
@@ -6,12 +6,9 @@ import { FiltersService } from 'src/app/services/filters.service';
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],
-  styleUrls: ['./shop.component.scss'],
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
   constructor(private filtersService: FiltersService) {}
 
   $filters = this.filtersService.$filters.pipe(debounceTime(600));
-
-  ngOnInit(): void {}
 }
