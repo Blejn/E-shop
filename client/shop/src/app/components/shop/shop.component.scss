@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  grid-template-rows: 1fr 3fr 3fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "toolbar toolbar toolbar"
+    "products products filters"
+    "products products filters";
+  height: calc(100vh - 60px);
+}
+.toolbar {
+  grid-area: toolbar;
+  background-color: teal;
+}
+.filters {
+  grid-area: filters;
+}
+.products {
+  grid-area: products;
+  background: beige;
+}

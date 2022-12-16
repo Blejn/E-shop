@@ -1,0 +1,45 @@
+<form [formGroup]="filters">
+  <div class="mb-4">
+    <label for="author" class="form-label">Author(s)</label>
+    <input
+      class="form-control"
+      id="author"
+      formControlName="author"
+      placeholder="Filter by Authors"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="price" class="form-label">Price</label>
+    <input
+      class="form-control"
+      id="price"
+      formControlName="price"
+      placeholder="Filter by Price"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="bpm" class="form-label">BPM</label>
+    <select class="form-select" id="bpm" formControlName="bpm">
+      <option value="100">100</option>
+      <option value="120">120</option>
+      <option value="140">140</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="key" class="form-label">Key</label>
+    <select class="form-select" id="key" formControlName="key">
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+      <option value="G">G</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="category" class="form-label">Category</label>
+    <select class="form-select" id="category" formControlName="category">
+      <option value="dupa-type" selected>dupa-type beat</option>
+      <option value="dupa-type" selected>dupa-type beat</option>
+    </select>
+  </div>
+</form>
