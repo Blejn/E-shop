@@ -6,6 +6,7 @@ import { FiltersService } from 'src/app/services/filters.service';
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],
+  styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
   constructor(private filtersService: FiltersService) {}
