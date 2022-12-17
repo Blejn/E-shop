@@ -19,7 +19,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
     bpm: [],
     key: [],
     price: [],
-    graphic: [],
     category: [],
   });
 

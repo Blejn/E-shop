@@ -1,10 +1,12 @@
 export interface Product {
+  [key: string]: string | string[] | number | boolean;
   id: string;
-  authors: string[];
+  author: string[];
   bpm: number;
   key: string;
   price: number;
-  graphic: string;
+  image: string;
   category: string[];
   promotion: boolean;
+  title: string;
 }
