@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
+const { response } = require("express");
 const client = new Client({
   host: "tomaszrozko97.helioho.st",
   user: "tomaszrozko97_DBUser",
@@ -69,6 +70,18 @@ app.post("/products/add", jsonParser, async (req, res) => {
     res.status(200).json(newProduct);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+app.get("/products/promotions", jsonParser, async (req, res) => {
+  try {
+    await client.query(
+      "SELECT * FROM products WHERE promotion = true",
+      (err, response) => {
+        res.status(200).json(response.rows);
+      }
+    );
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
