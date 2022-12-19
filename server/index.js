@@ -15,25 +15,12 @@ const client = new Client({
 client.connect();
 
 app.use(cors());
-// app.use(function (req, res, next) {
-//   res.setHeader("Cross-Origin-Resource-Policy", "same-site");
-//   next();
-// });
+
 const jsonParser = bodyParser.json();
 
 app.get("/products", (req, res) => {
   try {
     client.query("SELECT * FROM products", (err, response) => {
-      res.status(200).json(response.rows);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-app.get("/products", async (req, res) => {
-  try {
-    await client.query("SELECT * FROM products", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
