@@ -6,18 +6,21 @@ import { Product } from '../model/Product';
   name: 'filterProduct',
 })
 export class FilterProductPipe implements PipeTransform {
-  transform(value: Product[] | null, searchValues: Filters): Product[] | null {
-    const usedFilters = Object.entries(searchValues).filter(
+  transform(value: Product[] | null, searchFilters: Filters): Product[] | null {
+    const searchFormFilters = Object.entries(searchFilters).filter(
       (entry) => entry[1]
     );
     if (value) {
       return value.filter((product) =>
-        usedFilters.every((filter) => {
-          const matchingFilterValue = product[filter[0]];
-          if (Array.isArray(matchingFilterValue)) {
-            return matchingFilterValue.some((value) => value === filter[1]);
+        searchFormFilters.every((filterKeyVal) => {
+          const filterKey = filterKeyVal[0] as keyof Product;
+          const filterValue = filterKeyVal[1];
+          const productFilterValue = product[filterKey];
+
+          if (Array.isArray(productFilterValue)) {
+            return productFilterValue.some((value) => value === filterValue);
           } else {
-            return product[filter[0]] === filter[1];
+            return product[filterKey] === filterValue;
           }
         })
       );

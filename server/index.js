@@ -19,15 +19,27 @@ app.use(cors());
 //   next();
 // });
 const jsonParser = bodyParser.json();
-app.get("/users", async (req, res) => {
+
+app.get("/products", (req, res) => {
   try {
-    await client.query("SELECT * FROM users", (err, response) => {
+    client.query("SELECT * FROM products", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+app.get("/filters", (req, res) => {
+  try {
+    client.query("SELECT DISTINCT * FROM products", (err, response) => {
+      res.status(200).json(response.rows);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 app.put("/users/edit/:id", jsonParser, async (req, res) => {
   try {
     const { id } = req.params;
@@ -43,9 +55,6 @@ app.put("/users/edit/:id", jsonParser, async (req, res) => {
   }
 });
 
-
-
 app.listen(process.env.PORT || 3500, () => {
   console.log(`Server running`);
 });
-
