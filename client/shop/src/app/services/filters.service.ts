@@ -7,7 +7,6 @@ import { Filters } from '../model/Filters';
 })
 export class FiltersService {
   private $filtersValues = new Subject();
-  constructor() {}
 
   set setFilters(filters: Filters) {
     this.$filtersValues.next(filters);

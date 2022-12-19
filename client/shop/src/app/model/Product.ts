@@ -1,5 +1,5 @@
 export interface Product {
-  [key: string]: string | string[] | number | boolean;
+  // [key: string]: string | string[] | number | boolean;
   id: string;
   author: string[];
   bpm: number;

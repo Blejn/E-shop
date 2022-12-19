@@ -1,5 +1,5 @@
 export interface Filters {
-  [key: string]: string | number | null | undefined;
+  // [key: string]: string | number | null | undefined;
   author?: string | null | undefined;
   bpm?: number | null | undefined;
   key?: string | null | undefined;

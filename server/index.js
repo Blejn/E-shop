@@ -20,9 +20,10 @@ app.use(cors());
 //   next();
 // });
 const jsonParser = bodyParser.json();
-app.get("/users", async (req, res) => {
+
+app.get("/products", (req, res) => {
   try {
-    await client.query("SELECT * FROM users", (err, response) => {
+    client.query("SELECT * FROM products", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
