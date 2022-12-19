@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { first, Subscription } from 'rxjs';
-import { Filters } from 'src/app/model/Filters';
-import { Product } from 'src/app/model/Product';
 import { FiltersService } from 'src/app/services/filters.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -31,22 +29,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
 
   subscriptions?: Subscription[];
 
-  private getFiltersOptions(products: Product[]): typeof obj {
-    const controls = Object.keys(this.filters.controls);
-    const obj: { [key: string]: Set<string | number> } = {};
-
-    controls.forEach(
-      (control) =>
-        (obj[control] = new Set(
-          products
-            .map((product) => product[control as keyof Filters])
-            .filter((x) => x !== null || undefined)
-            .flat()
-        ))
-    );
-    return obj;
-  } // private metoda do pobierania mozliwych wartosci do selectow w filtrach
-
   ngOnInit(): void {
     const filtersSubscription = this.$filtersValues.subscribe((val) => {
       this.filtersService.setFilters = val;
@@ -57,8 +39,10 @@ export class FiltersComponent implements OnInit, OnDestroy {
       .getProducts()
       .pipe(first())
       .subscribe((products) => {
-        this.filtersSelectOptions = this.getFiltersOptions(products);
-        console.log(this.filtersSelectOptions);
+        this.filtersSelectOptions = this.filtersService.getFiltersOptions(
+          products,
+          this.filters
+        );
       });
   } // trzeba to oddelegowac do serwisu, odczytywanie mozliwych do wyboru wartosci do <select> albo wymyslic inny sposob :)))
 
