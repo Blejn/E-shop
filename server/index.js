@@ -14,15 +14,11 @@ const client = new Client({
 client.connect();
 
 app.use(cors());
-// app.use(function (req, res, next) {
-//   res.setHeader("Cross-Origin-Resource-Policy", "same-site");
-//   next();
-// });
-const jsonParser = bodyParser.json();
 
-app.get("/products", (req, res) => {
+const jsonParser = bodyParser.json();
+app.get("/users", async (req, res) => {
   try {
-    client.query("SELECT * FROM products", (err, response) => {
+    await client.query("SELECT * FROM users", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
@@ -30,9 +26,9 @@ app.get("/products", (req, res) => {
   }
 });
 
-app.get("/filters", (req, res) => {
+app.get("/products", async (req, res) => {
   try {
-    client.query("SELECT DISTINCT * FROM products", (err, response) => {
+    await client.query("SELECT * FROM products", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
@@ -50,6 +46,24 @@ app.put("/users/edit/:id", jsonParser, async (req, res) => {
     );
 
     res.status(200).json(newEmail);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+app.post("/products/add", jsonParser, async (req, res) => {
+  try {
+    let randId = Math.floor(Math.random() * 10000000000);
+    const title = req.body.title;
+    const author = req.body.author;
+    const price = req.body.price;
+    const image = req.body.image;
+    const category = req.body.category;
+    const newProduct = await client.query(
+      "INSERT INTO products(id, title, author, price, image, category) VALUES ($1, $2, $3, $4, $5,$6)",
+      [randId, title, author, price, image, category]
+    );
+    res.status(200).json(newProduct);
   } catch (err) {
     res.status(500).json(err);
   }
