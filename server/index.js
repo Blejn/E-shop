@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
+const { response } = require("express");
 const client = new Client({
   host: "tomaszrozko97.helioho.st",
   user: "tomaszrozko97_DBUser",
@@ -16,19 +17,10 @@ client.connect();
 app.use(cors());
 
 const jsonParser = bodyParser.json();
-app.get("/users", async (req, res) => {
-  try {
-    await client.query("SELECT * FROM users", (err, response) => {
-      res.status(200).json(response.rows);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
-app.get("/products", async (req, res) => {
+app.get("/products", (req, res) => {
   try {
-    await client.query("SELECT * FROM products", (err, response) => {
+    client.query("SELECT * FROM products", (err, response) => {
       res.status(200).json(response.rows);
     });
   } catch (err) {
@@ -50,7 +42,6 @@ app.put("/users/edit/:id", jsonParser, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 app.post("/products/add", jsonParser, async (req, res) => {
   try {
     let randId = Math.floor(Math.random() * 10000000000);
@@ -66,6 +57,18 @@ app.post("/products/add", jsonParser, async (req, res) => {
     res.status(200).json(newProduct);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+app.get("/products/promotions", jsonParser, async (req, res) => {
+  try {
+    await client.query(
+      "SELECT * FROM products WHERE promotion = true",
+      (err, response) => {
+        res.status(200).json(response.rows);
+      }
+    );
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
